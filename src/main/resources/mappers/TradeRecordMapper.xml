@@ -2,34 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.liuyan.zbauto.mapper.TradeRecordMapper" >
   <resultMap id="BaseResultMap" type="com.liuyan.zbauto.mapper.entity.TradeRecord" >
-    <id column="id" property="id" jdbcType="BIGINT" />
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="type" property="type" jdbcType="VARCHAR" />
     <result column="operate" property="operate" jdbcType="TINYINT" />
     <result column="amount" property="amount" jdbcType="DECIMAL" />
     <result column="count" property="count" jdbcType="INTEGER" />
-    <result column="total_amount" property="totalAmount" jdbcType="DECIMAL" />
+    <result column="totalAmount" property="totalamount" jdbcType="DECIMAL" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, type, operate, amount, count, total_amount, create_time, update_time
+    id, type, operate, amount, count, totalAmount, create_time, update_time
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
     from trade_record
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from trade_record
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.liuyan.zbauto.mapper.entity.TradeRecord" >
     insert into trade_record (id, type, operate, 
-      amount, count, total_amount, 
+      amount, count, totalAmount, 
       create_time, update_time)
-    values (#{id,jdbcType=BIGINT}, #{type,jdbcType=VARCHAR}, #{operate,jdbcType=TINYINT}, 
-      #{amount,jdbcType=DECIMAL}, #{count,jdbcType=INTEGER}, #{totalAmount,jdbcType=DECIMAL}, 
+    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, #{operate,jdbcType=TINYINT}, 
+      #{amount,jdbcType=DECIMAL}, #{count,jdbcType=INTEGER}, #{totalamount,jdbcType=DECIMAL}, 
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.liuyan.zbauto.mapper.entity.TradeRecord" >
@@ -50,8 +50,8 @@
       <if test="count != null" >
         count,
       </if>
-      <if test="totalAmount != null" >
-        total_amount,
+      <if test="totalamount != null" >
+        totalAmount,
       </if>
       <if test="createTime != null" >
         create_time,
@@ -62,7 +62,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
-        #{id,jdbcType=BIGINT},
+        #{id,jdbcType=INTEGER},
       </if>
       <if test="type != null" >
         #{type,jdbcType=VARCHAR},
@@ -76,8 +76,8 @@
       <if test="count != null" >
         #{count,jdbcType=INTEGER},
       </if>
-      <if test="totalAmount != null" >
-        #{totalAmount,jdbcType=DECIMAL},
+      <if test="totalamount != null" >
+        #{totalamount,jdbcType=DECIMAL},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
@@ -102,8 +102,8 @@
       <if test="count != null" >
         count = #{count,jdbcType=INTEGER},
       </if>
-      <if test="totalAmount != null" >
-        total_amount = #{totalAmount,jdbcType=DECIMAL},
+      <if test="totalamount != null" >
+        totalAmount = #{totalamount,jdbcType=DECIMAL},
       </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -112,7 +112,7 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.liuyan.zbauto.mapper.entity.TradeRecord" >
     update trade_record
@@ -120,9 +120,9 @@
       operate = #{operate,jdbcType=TINYINT},
       amount = #{amount,jdbcType=DECIMAL},
       count = #{count,jdbcType=INTEGER},
-      total_amount = #{totalAmount,jdbcType=DECIMAL},
+      totalAmount = #{totalamount,jdbcType=DECIMAL},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP}
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

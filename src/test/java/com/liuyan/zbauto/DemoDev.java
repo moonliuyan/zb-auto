@@ -7,9 +7,11 @@ import com.liuyan.zbauto.api.UserApi;
 import com.liuyan.zbauto.api.entity.Account;
 import com.liuyan.zbauto.api.entity.TradeResult;
 import com.liuyan.zbauto.api.enumtype.ExchangeEnum;
+import com.liuyan.zbauto.wechat.WechatService;
 import jodd.props.Props;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 import java.io.File;
@@ -30,6 +32,13 @@ public class DemoDev {
 	private RestApiGet apiGet;
 	
 	private final String symbol = "eth_qc";
+	@Autowired
+	WechatService wechatService;
+
+	@Test
+	public void getWechatUrl(){
+		String response = wechatService.getWeChatAccessTokenUrl();
+	}
 	
 	
 	@Test
@@ -85,7 +94,7 @@ public class DemoDev {
 		// 构造行情api对象
 		apiGet = new RestApiGet(symbol);
 		Props p = new Props();
-		p.load(new File("D:\\秘钥.txt"));
+		p.load(new File("/Users/panhong/秘钥.txt"));
 		String apiKey = p.getValue("user.zb.apikey");// 修改为自己的公钥
 		String secretKey = p.getValue("user.zb.secretKey");// 修改为自己的私钥
 		

@@ -4,8 +4,8 @@ server:
 
 spring:
   datasource:
-    username: kanzhun
-    password: kanzhun!@#kanzhun
+    username: root
+      password: 123QWEqwe
     url: jdbc:mysql://192.168.1.38:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
     driver-class-name: com.mysql.jdbc.Driver
 
@@ -20,3 +20,9 @@ logging:
     com:
       example:
         mapper : debug
+
+
+wechat:
+  appId: wxd86b7a6aab56f0ff
+  secretId: ae7ed5e276ed27eae3d5bf9e17a6f5d1
+  accessUrl: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET

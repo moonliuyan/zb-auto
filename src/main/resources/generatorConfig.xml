@@ -23,9 +23,9 @@
         URL后加的参数可以减少报错，&连接需要做转义，SSL版本高需要声明-->
         <jdbcConnection
                 driverClass="com.mysql.cj.jdbc.Driver"
-                connectionURL= "jdbc:mysql://192.168.1.38:3306/test?characterEncoding=utf8&amp;useSSL=false"
-                userId= "kanzhun"
-                password= "kanzhun!@#kanzhun" >
+                connectionURL= "jdbc:mysql://localhost:3306/zb?characterEncoding=utf8&amp;useSSL=false"
+                userId= "root"
+                password= "123456" >
         </jdbcConnection>
 
         <!-- 非必需，类型处理器，在数据库类型和java类型之间的转换控制-->
@@ -77,7 +77,7 @@
         <!--enableDeleteByExample（默认true）：MyBatis3Simple为false，指定是否生成动态删除语句；-->
         <!--enableCountByExample（默认true）：MyBatis3Simple为false，指定是否生成动态查询总条数语句（用于分页的总条数查询）；-->
         <!--enableUpdateByExample（默认true）：MyBatis3Simple为false，指定是否生成动态修改语句（只修改对象中不为空的属性）；-->
-        <table tableName="trade_record"
+        <table tableName="wx_access_token"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
