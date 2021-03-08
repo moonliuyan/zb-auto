@@ -11,7 +11,8 @@ public class TradeRecordServiceImpl implements TradeRecordService {
     @Autowired
     TradeRecordMapper tradeRecordMapper;
 
-    public TradeRecord getTradeRecordbyId(long id){
+    public TradeRecord getTradeRecordbyId(int id){
+
         return tradeRecordMapper.selectByPrimaryKey(id);
     }
 }

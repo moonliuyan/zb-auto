@@ -14,6 +14,8 @@ public class TestController {
     private TradeRecordService tradeRecordService;
     @Autowired
     private RestApiPostApi restApiPostApi;
+    @Autowired
+    private WechatService wechatService;
     @RequestMapping("/test")
     @ResponseBody
     public Object test(){
@@ -27,5 +29,12 @@ public class TestController {
     public void auto(){
         restApiPostApi.auto("zb_qc");
         return ;
+    }
+
+    @RequestMapping("/test1")
+    @ResponseBody
+    public Object test1(){
+
+        return wechatService.getWeChatAccessTokenUrl();
     }
 }

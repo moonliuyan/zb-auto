@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class TradeRecord {
-    private Long id;
+    private Integer id;
 
     private String type;
 
@@ -14,17 +14,17 @@ public class TradeRecord {
 
     private Integer count;
 
-    private BigDecimal totalAmount;
+    private BigDecimal totalamount;
 
     private Date createTime;
 
     private Date updateTime;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -60,12 +60,12 @@ public class TradeRecord {
         this.count = count;
     }
 
-    public BigDecimal getTotalAmount() {
-        return totalAmount;
+    public BigDecimal getTotalamount() {
+        return totalamount;
     }
 
-    public void setTotalAmount(BigDecimal totalAmount) {
-        this.totalAmount = totalAmount;
+    public void setTotalamount(BigDecimal totalamount) {
+        this.totalamount = totalamount;
     }
 
     public Date getCreateTime() {
