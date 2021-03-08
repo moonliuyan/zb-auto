@@ -2,7 +2,7 @@ package com.liuyan.zbauto;
 
 
 import com.liuyan.zbauto.api.RestApiGet;
-import com.liuyan.zbauto.api.RestApiPost;
+import com.liuyan.zbauto.api.RestApiPostApi;
 import com.liuyan.zbauto.api.UserApi;
 import com.liuyan.zbauto.api.entity.Account;
 import com.liuyan.zbauto.api.entity.TradeResult;
@@ -10,6 +10,7 @@ import com.liuyan.zbauto.api.enumtype.ExchangeEnum;
 import jodd.props.Props;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 
 import java.io.File;
@@ -25,11 +26,11 @@ public class DemoDev {
 	private final String url_get = "http://api.zb.com/data/v1/";
 	private final String url_post = "https://trade.zb.center/api/";
 //	private final String url_post = "https://trade.zb.live/api/";
+	@Autowired
+	private RestApiPostApi apiPost;
+
 	
-	private RestApiPost apiPost;
-	private RestApiGet apiGet;
-	
-	private final String symbol = "eth_qc";
+	private final String symbol = "zb_qc";
 	
 	
 	@Test
@@ -42,7 +43,7 @@ public class DemoDev {
 //		apiPost.buy(1, 1);
 		
 //		double price = apiGet.getDept().getBids().get(2).getPrice();// 获取买4价格挂单
-		TradeResult buyResult = apiPost.buy(31.7, 1);
+		TradeResult buyResult = apiPost.buy(31.7, 1,symbol);
 		long id = buyResult.getId();// 返回挂单id
 		System.out.println("下单返回结果:" + buyResult + ",挂单Id:" + id);
 	}
@@ -79,18 +80,5 @@ public class DemoDev {
 	}
 	
 	
-	@Before
-	public void init() throws IOException {
-		
-		// 构造行情api对象
-		apiGet = new RestApiGet(symbol);
-		Props p = new Props();
-		p.load(new File("D:\\秘钥.txt"));
-		String apiKey = p.getValue("user.zb.apikey");// 修改为自己的公钥
-		String secretKey = p.getValue("user.zb.secretKey");// 修改为自己的私钥
-		
-		// 构造交易接口对象
-		apiPost = new RestApiPost(symbol, new UserApi(ExchangeEnum.zb, "不赚十万不回头", apiKey, secretKey));
 
-	}
 }

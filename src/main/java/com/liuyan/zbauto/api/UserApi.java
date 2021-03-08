@@ -11,9 +11,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Data
-@AllArgsConstructor
-@Accessors(chain = true)
-@DbTable(value = "UserApiEntity")
 /** 用户key */
 public class UserApi implements Serializable {
 	private static final long serialVersionUID = 2532495564964592602L;
