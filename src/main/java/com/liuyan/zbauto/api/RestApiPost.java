@@ -626,17 +626,10 @@ public class RestApiPost {
 	public void auto(String symbol){
 		double currentAmount = getTicker(symbol);
 
-//		TradeResult buyResult = apiPost.buy(currentAmount, 10000);
-		//交易记录暂时用txt
-		String record=symbol+"\t\t买入\t\t"+currentAmount+"\t\t"+10000+"\t\t"+new BigDecimal(currentAmount).multiply(new BigDecimal(10000)).setScale(2, RoundingMode.HALF_UP).toString()+"\t\t"+DateUtil.format(new Date(), DatePattern.NORM_DATETIME_PATTERN)+"\n";
-//		CaculateUtil.saveAsFileWriter(record,"D:\\record.txt");
-
 		while(true){
 			double nextAmount = getTicker(symbol);
 			if(nextAmount-currentAmount>5000){
-				//模拟卖出
-				String sellrecord=symbol+"\t\t卖出\t\t"+nextAmount+"\t\t"+10000+"\t\t"+new BigDecimal(nextAmount).multiply(new BigDecimal(10000)).setScale(2, RoundingMode.HALF_UP).toString()+"\t\t"+DateUtil.format(new Date(), DatePattern.NORM_DATETIME_PATTERN)+"\t\t"+(nextAmount-currentAmount)*10000;
-//				CaculateUtil.saveAsFileWriter(sellrecord,"D:\\record.txt");
+
 				break;
 			}
 			try {

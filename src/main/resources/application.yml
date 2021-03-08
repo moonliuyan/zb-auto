@@ -26,3 +26,5 @@ wechat:
   appId: wxd86b7a6aab56f0ff
   secretId: ae7ed5e276ed27eae3d5bf9e17a6f5d1
   accessUrl: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET
+  sendKey: SCT16749TWjLwVLvRt3r5srSrOwpOqJqQ
+  sendUrl: https://sctapi.ftqq.com/sendKey.send?title=messagetitle&desp=messagecontent
